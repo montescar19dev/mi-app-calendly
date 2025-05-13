@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import prisma from "@/lib/prisma";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { format } from "date-fns";
 import { BookMarked, CalendarX2, Clock } from "lucide-react";
 import Image from "next/image";

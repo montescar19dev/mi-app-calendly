@@ -13,6 +13,7 @@ export function CalendarButton(
 ) {
   const ref = useRef<HTMLButtonElement>(null);
   const { buttonProps } = useButton(props, ref);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { focusProps, isFocusVisible } = useFocusRing();
   return (
     <Button

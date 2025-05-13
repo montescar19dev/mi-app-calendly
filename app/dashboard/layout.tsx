@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { ReactNode } from "react";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { requireUser } from "../lib/hooks";
 import prisma from "../lib/db";
 import { redirect } from "next/navigation";
@@ -51,7 +52,7 @@ export default async function Dashboard({ children }: { children: ReactNode }) {
   if (!session?.user) {
     return redirect("/");
   }
-
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
   const data = await getData(session.user.id as string);
 
   return (

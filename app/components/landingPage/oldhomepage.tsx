@@ -276,10 +276,13 @@ export function OldHomePage() {
         </div>
         {/* End Col */}
         <div className="relative ms-4">
-          <img
+          <Image
             className="w-full rounded-md"
             src="https://images.unsplash.com/photo-1665686377065-08ba896d16fd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=700&h=800&q=80"
             alt="Hero Image"
+            width={700}
+            height={800}
+            priority
           />
           <div className="absolute inset-0 -z-[1] bg-gradient-to-tr from-gray-200 via-white/0 to-white/0 size-full rounded-md mt-4 -mb-4 me-4 -ms-4 lg:mt-6 lg:-mb-6 lg:me-6 lg:-ms-6 dark:from-neutral-800 dark:via-neutral-900/0 dark:to-neutral-900/0" />
           {/* SVG*/}

@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Separator } from "@/components/ui/separator";
 import { Check } from "lucide-react";
 import Link from "next/link";

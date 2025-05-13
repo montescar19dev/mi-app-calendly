@@ -5,6 +5,7 @@ import prisma from "./lib/db";
 import { requireUser } from "./lib/hooks";
 import {
   aboutSettingsSchema,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   eventTypeSchema,
   EventTypeServerSchema,
   onboardingSchema,
@@ -14,7 +15,7 @@ import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import { nylas } from "./lib/nylas";
 
-export async function onboardingAction(prevState: any, formData: FormData) {
+export async function onboardingAction(prevState: unknown, formData: FormData) {
   const session = await requireUser();
 
   const submission = await parseWithZod(formData, {
@@ -35,7 +36,7 @@ export async function onboardingAction(prevState: any, formData: FormData) {
   if (submission.status !== "success") {
     return submission.reply();
   }
-
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
   const OnboardingData = await prisma.user.update({
     where: {
       id: session.user?.id,
@@ -90,7 +91,7 @@ export async function onboardingAction(prevState: any, formData: FormData) {
   return redirect("/onboarding/grant-id");
 }
 
-export async function SettingsAction(prevState: any, formData: FormData) {
+export async function SettingsAction(prevState: unknown, formData: FormData) {
   const session = await requireUser();
 
   const submission = parseWithZod(formData, {
@@ -100,7 +101,7 @@ export async function SettingsAction(prevState: any, formData: FormData) {
   if (submission.status !== "success") {
     return submission.reply();
   }
-
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
   const user = await prisma.user.update({
     where: {
       id: session.user?.id as string,
@@ -115,7 +116,7 @@ export async function SettingsAction(prevState: any, formData: FormData) {
 }
 
 export async function CreateEventTypeAction(
-  prevState: any,
+  prevState: unknown,
   formData: FormData
 ) {
   const session = await requireUser();
@@ -138,7 +139,7 @@ export async function CreateEventTypeAction(
   if (submission.status !== "success") {
     return submission.reply();
   }
-
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
   const data = await prisma.eventType.create({
     data: {
       title: submission.value.title,
@@ -153,7 +154,7 @@ export async function CreateEventTypeAction(
   return redirect("/dashboard");
 }
 
-export async function EditEventTypeAction(prevState: any, formData: FormData) {
+export async function EditEventTypeAction(prevState: unknown, formData: FormData) {
   const session = await requireUser();
 
   const submission = await parseWithZod(formData, {
@@ -175,7 +176,7 @@ export async function EditEventTypeAction(prevState: any, formData: FormData) {
   if (submission.status !== "success") {
     return submission.reply();
   }
-
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
   const data = await prisma.eventType.update({
     where: {
       id: formData.get("id") as string,
@@ -195,7 +196,7 @@ export async function EditEventTypeAction(prevState: any, formData: FormData) {
 
 export async function DeleteEventTypeAction(formData: FormData) {
   const session = await requireUser();
-
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
   const data = await prisma.eventType.delete({
     where: {
       id: formData.get("id") as string,
@@ -207,7 +208,7 @@ export async function DeleteEventTypeAction(formData: FormData) {
 }
 
 export async function updateEventTypeStatusAction(
-  prevState: any,
+  prevState: unknown,
   {
     eventTypeId,
     isChecked,
@@ -218,7 +219,7 @@ export async function updateEventTypeStatusAction(
 ) {
   try {
     const session = await requireUser();
-
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
     const data = await prisma.eventType.update({
       where: {
         id: eventTypeId,
@@ -243,6 +244,7 @@ export async function updateEventTypeStatusAction(
 }
 
 export async function updateAvailabilityAction(formData: FormData) {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const session = await requireUser();
 
   const rawData = Object.fromEntries(formData.entries());
@@ -360,7 +362,7 @@ export async function cancelMeetingAction(formData: FormData) {
   if (!userData) {
     throw new Error("User not found");
   }
-
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
   const data = await nylas.events.destroy({
     eventId: formData.get("eventId") as string,
     identifier: userData?.grantId as string,

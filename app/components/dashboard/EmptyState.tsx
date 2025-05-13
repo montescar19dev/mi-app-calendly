@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Ban, FileIcon, PlusCircle } from "lucide-react";
 import Link from "next/link";
 

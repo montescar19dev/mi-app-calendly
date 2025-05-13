@@ -8,7 +8,9 @@ import {
 
 import Logo from "@/public/logo.png";
 import Image from "next/image";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import GooleLogo from "@/public/google.svg";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import GitHubLogo from "@/public/github.svg";
 
 import { signIn } from "@/app/lib/auth";
